@@ -1,0 +1,80 @@
+---
+title: "Dự án Arduino đầu tiên: LED nhấp nháy"
+date: "2023-05-15"
+description: "Hướng dẫn chi tiết cách tạo dự án Arduino đầu tiên với LED nhấp nháy, phù hợp cho người mới bắt đầu."
+image: "/post/diy-post-2.png?height=600&width=800"
+category: "Arduino"
+tags: ["arduino", "led", "beginner", "electronics"]
+---
+
+# Dự án Arduino đầu tiên: LED nhấp nháy
+
+Trong bài viết này, chúng ta sẽ tìm hiểu cách tạo một dự án Arduino đơn giản nhất: LED nhấp nháy. Đây là dự án "Hello World" trong thế giới Arduino và là điểm khởi đầu tuyệt vời cho người mới.
+
+## Thiết bị cần thiết
+
+1. Arduino Uno (hoặc bất kỳ board Arduino nào)
+2. Dây cáp USB
+3. LED (bất kỳ màu nào)
+4. Điện trở 220 ohm
+5. Dây jumper
+
+## Sơ đồ mạch
+
+Kết nối LED với chân 13 của Arduino và GND thông qua điện trở 220 ohm.
+
+## Code
+
+```
+// Arduino LED Blinker
+// Chương trình đơn giản để nhấp nháy LED
+
+void setup() {
+  // Khởi tạo chân 13 là OUTPUT
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  // Bật LED
+  digitalWrite(13, HIGH);
+  // Đợi 1 giây
+  delay(1000);
+  // Tắt LED
+  digitalWrite(13, LOW);
+  // Đợi 1 giây
+  delay(1000);
+}
+```
+
+## Giải thích code
+
+1. `setup()` - Hàm này chạy một lần khi Arduino khởi động. Chúng ta thiết lập chân 13 là OUTPUT.
+2. `loop()` - Hàm này chạy liên tục sau khi `setup()` hoàn thành:
+   - `digitalWrite(13, HIGH)` - Bật LED
+   - `delay(1000)` - Đợi 1 giây (1000 mili giây)
+   - `digitalWrite(13, LOW)` - Tắt LED
+   - `delay(1000)` - Đợi 1 giây trước khi lặp lại
+
+## Cách thực hiện
+
+1. Lắp ráp mạch theo hướng dẫn
+2. Kết nối Arduino với máy tính qua cáp USB
+3. Mở phần mềm Arduino IDE
+4. Sao chép và dán code vào
+5. Nhấn nút "Upload" để tải code lên Arduino
+
+Sau khi hoàn thành, bạn sẽ thấy LED nhấp nháy với chu kỳ 2 giây (bật 1 giây, tắt 1 giây).
+
+## Nâng cao
+
+Sau khi làm quen với dự án cơ bản này, bạn có thể thử:
+
+1. Thay đổi thời gian nhấp nháy
+2. Thêm nhiều LED hơn
+3. Tạo các mẫu nhấp nháy khác nhau
+
+## Kết luận
+
+Dự án đơn giản này là bước đầu tiên tuyệt vời để bắt đầu hành trình với Arduino. Từ đây, bạn có thể tiếp tục với các dự án phức tạp hơn như điều khiển nhiều LED, sử dụng cảm biến, tạo âm thanh, và nhiều thứ khác.
+
+Hãy thử nghiệm và chia sẻ kết quả của bạn trong phần bình luận!

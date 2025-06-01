@@ -1,0 +1,220 @@
+---
+title: "Kiến thức cơ bản về Điện tử số"
+date: "2023-08-05"
+description: "Tìm hiểu về các khái niệm cơ bản của điện tử số, cổng logic và hệ thống nhị phân cho người mới bắt đầu."
+image: "/home/diy-post-1.jpg?height=600&width=800"
+category: "Điện tử"
+tags: ["electronics", "digital", "logic gates", "binary", "beginner"]
+---
+
+# Kiến thức cơ bản về Điện tử số
+
+Điện tử số là nền tảng của tất cả các thiết bị điện tử hiện đại, từ máy tính đến điện thoại thông minh và các thiết bị IoT. Trong bài viết này, chúng ta sẽ tìm hiểu về các khái niệm cơ bản của điện tử số, cổng logic và hệ thống nhị phân.
+
+## Hệ thống nhị phân
+
+Khác với hệ thập phân mà chúng ta sử dụng hàng ngày (0-9), điện tử số sử dụng hệ nhị phân chỉ có hai trạng thái: 0 và 1. Trong mạch điện tử, hai trạng thái này thường được biểu diễn bằng:
+
+- **0**: Điện áp thấp (thường là 0V hoặc gần 0V)
+- **1**: Điện áp cao (thường là 3.3V, 5V hoặc cao hơn tùy vào công nghệ)
+
+### Chuyển đổi giữa hệ nhị phân và hệ thập phân
+
+Để chuyển đổi từ nhị phân sang thập phân, chúng ta nhân mỗi chữ số với lũy thừa tương ứng của 2:
+
+```
+Nhị phân: 1 0 1 1
+Thập phân: (1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰)
+         = 8 + 0 + 2 + 1
+         = 11
+```
+
+Để chuyển đổi từ thập phân sang nhị phân, chúng ta chia liên tiếp cho 2 và ghi lại số dư:
+
+```
+Thập phân: 13
+13 ÷ 2 = 6 dư 1
+6 ÷ 2 = 3 dư 0
+3 ÷ 2 = 1 dư 1
+1 ÷ 2 = 0 dư 1
+Nhị phân: 1101 (đọc từ dưới lên)
+```
+
+## Cổng logic cơ bản
+
+Cổng logic là các khối xây dựng cơ bản của mạch điện tử số. Chúng thực hiện các phép toán logic trên một hoặc nhiều đầu vào để tạo ra một đầu ra.
+
+### Cổng AND
+
+Cổng AND cho đầu ra là 1 chỉ khi tất cả các đầu vào đều là 1.
+
+| A | B | A AND B |
+|---|---|---------|
+| 0 | 0 | 0       |
+| 0 | 1 | 0       |
+| 1 | 0 | 0       |
+| 1 | 1 | 1       |
+
+### Cổng OR
+
+Cổng OR cho đầu ra là 1 nếu ít nhất một đầu vào là 1.
+
+| A | B | A OR B |
+|---|---|--------|
+| 0 | 0 | 0      |
+| 0 | 1 | 1      |
+| 1 | 0 | 1      |
+| 1 | 1 | 1      |
+
+### Cổng NOT
+
+Cổng NOT (hoặc đảo) đảo ngược đầu vào: nếu đầu vào là 0, đầu ra là 1 và ngược lại.
+
+| A | NOT A |
+|---|-------|
+| 0 | 1     |
+| 1 | 0     |
+
+### Cổng NAND
+
+Cổng NAND là sự kết hợp của cổng AND và NOT: đầu ra là 0 chỉ khi tất cả các đầu vào đều là 1.
+
+| A | B | A NAND B |
+|---|---|----------|
+| 0 | 0 | 1        |
+| 0 | 1 | 1        |
+| 1 | 0 | 1        |
+| 1 | 1 | 0        |
+
+### Cổng NOR
+
+Cổng NOR là sự kết hợp của cổng OR và NOT: đầu ra là 1 chỉ khi tất cả các đầu vào đều là 0.
+
+| A | B | A NOR B |
+|---|---|---------|
+| 0 | 0 | 1       |
+| 0 | 1 | 0       |
+| 1 | 0 | 0       |
+| 1 | 1 | 0       |
+
+### Cổng XOR
+
+Cổng XOR (Exclusive OR) cho đầu ra là 1 khi số lượng đầu vào có giá trị 1 là lẻ.
+
+| A | B | A XOR B |
+|---|---|---------|
+| 0 | 0 | 0       |
+| 0 | 1 | 1       |
+| 1 | 0 | 1       |
+| 1 | 1 | 0       |
+
+## IC số cơ bản
+
+Các cổng logic được đóng gói trong các chip IC (Integrated Circuit). Một số IC số phổ biến bao gồm:
+
+- **74HC00**: Chứa 4 cổng NAND 2 đầu vào
+- **74HC02**: Chứa 4 cổng NOR 2 đầu vào
+- **74HC04**: Chứa 6 cổng NOT
+- **74HC08**: Chứa 4 cổng AND 2 đầu vào
+- **74HC32**: Chứa 4 cổng OR 2 đầu vào
+- **74HC86**: Chứa 4 cổng XOR 2 đầu vào
+
+## Mạch điện tử số đơn giản
+
+### Mạch nửa cộng (Half Adder)
+
+Mạch nửa cộng thực hiện phép cộng hai bit nhị phân và tạo ra hai đầu ra: tổng (Sum) và nhớ (Carry).
+
+```
+A ---+----> XOR ----> Sum
+     |
+B ---+----> AND ----> Carry
+```
+
+| A | B | Sum | Carry |
+|---|---|-----|-------|
+| 0 | 0 | 0   | 0     |
+| 0 | 1 | 1   | 0     |
+| 1 | 0 | 1   | 0     |
+| 1 | 1 | 0   | 1     |
+
+### Mạch cộng đầy đủ (Full Adder)
+
+Mạch cộng đầy đủ thực hiện phép cộng ba bit nhị phân (hai bit đầu vào và một bit nhớ từ vị trí trước đó).
+
+```
+A ---+----> Half Adder ---+----> XOR ----> Sum
+     |                    |
+B ---+                    |
+                          |
+Cin -------------------------> Half Adder ----> Carry
+```
+
+## Flip-Flop và thanh ghi
+
+Flip-Flop là mạch điện tử có khả năng lưu trữ một bit thông tin. Chúng là nền tảng của bộ nhớ trong máy tính.
+
+### Flip-Flop D
+
+Flip-Flop D (Data) lưu trữ giá trị đầu vào D khi có xung clock.
+
+```
+     +---+
+D ---|   |
+     | D |--- Q
+CLK --|   |
+     +---+
+```
+
+### Thanh ghi dịch (Shift Register)
+
+Thanh ghi dịch là một chuỗi các Flip-Flop được kết nối với nhau, cho phép dữ liệu được dịch chuyển từ Flip-Flop này sang Flip-Flop khác.
+
+## Ứng dụng thực tế
+
+Điện tử số được ứng dụng rộng rãi trong nhiều lĩnh vực:
+
+1. **Máy tính**: CPU, bộ nhớ, và các mạch logic khác
+2. **Truyền thông**: Mã hóa và giải mã tín hiệu
+3. **Điều khiển**: Hệ thống nhúng, vi điều khiển
+4. **Thiết bị gia dụng**: Lò vi sóng, máy giặt, tivi
+
+## Dự án đơn giản để thực hành
+
+### Mạch đèn LED nhấp nháy sử dụng cổng logic
+
+Bạn có thể tạo một mạch đèn LED nhấp nháy đơn giản sử dụng các cổng NAND hoặc NOR:
+
+```
+     +------+     +------+
+     |      |     |      |
++----| NAND |-----| NAND |----+
+|    |      |     |      |    |
+|    +------+     +------+    |
+|                             |
++-----------------------------+
+```
+
+Mạch này tạo ra một bộ dao động đơn giản, làm cho LED nhấp nháy.
+
+### Bộ đếm nhị phân sử dụng IC 74HC393
+
+IC 74HC393 chứa hai bộ đếm nhị phân 4 bit. Bạn có thể sử dụng nó để tạo một bộ đếm đơn giản với đèn LED hiển thị:
+
+```
+VCC ---+--- 74HC393 ---+--- LED 1
+       |               |
+GND ---+               +--- LED 2
+       |               |
+Clock -+               +--- LED 3
+                       |
+                       +--- LED 4
+```
+
+## Kết luận
+
+Điện tử số là một lĩnh vực rộng lớn và thú vị, tạo nền tảng cho hầu hết các công nghệ hiện đại. Bằng cách hiểu các khái niệm cơ bản như hệ nhị phân, cổng logic và các mạch tích hợp, bạn có thể bắt đầu xây dựng các dự án điện tử số của riêng mình.
+
+Trong các bài viết tiếp theo, chúng ta sẽ đi sâu hơn vào các chủ đề như bộ đếm, bộ giải mã, bộ nhớ và vi điều khiển.
+
+Hãy thử nghiệm với các mạch đơn giản và chia sẻ kết quả của bạn trong phần bình luận!
